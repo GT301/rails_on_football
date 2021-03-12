@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 1
+  round: MyString
+  date: 2021-03-12
+  team1: MyString
+  team2: MyString
+  league_name: MyString
+
+two:
+  match_id: 1
+  round: MyString
+  date: 2021-03-12
+  team1: MyString
+  team2: MyString
+  league_name: MyString

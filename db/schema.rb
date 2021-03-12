@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_154300) do
+ActiveRecord::Schema.define(version: 2021_03_12_164851) do
 
   create_table "clubs", force: :cascade do |t|
     t.integer "club_id"
     t.string "club_name"
     t.string "code"
     t.string "country"
-    t.string "league_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "league_id", null: false
+    t.index ["league_id"], name: "index_clubs_on_league_id"
   end
 
   create_table "leagues", force: :cascade do |t|
-    t.integer "league_id"
     t.string "league_name"
     t.integer "club_id"
     t.datetime "created_at", precision: 6, null: false
@@ -36,9 +36,12 @@ ActiveRecord::Schema.define(version: 2021_03_12_154300) do
     t.date "date"
     t.string "team1"
     t.string "team2"
-    t.string "league_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "league_id", null: false
+    t.index ["league_id"], name: "index_matches_on_league_id"
   end
 
+  add_foreign_key "clubs", "leagues"
+  add_foreign_key "matches", "leagues"
 end

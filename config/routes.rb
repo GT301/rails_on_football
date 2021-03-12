@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'matches/index'
-  get 'matches/show'
-  get 'leagues/index'
-  get 'leagues/show'
-  get 'clubs/index'
-  get 'clubs/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :clubs, only: %i[index show]
+  resources :leagues, only: %i[index show]
+  resources :mathces, only: %i[index show]
 end

@@ -10,8 +10,8 @@ require "open-uri"
 require "json"
 
 Club.destroy_all
-League.destroy_all
 Match.destroy_all
+League.destroy_all
 
 filename = Rails.root.join("db/en.1.clubs.json")
 
@@ -21,6 +21,8 @@ data = File.read(filename)
 result = JSON.parse(data)
 
 league = League.create(league_name: "Premier League 2020/21")
+league = League.create(league_name: "Ligue 1 2020/21")
+league = League.create(league_name: "Bundesliga 2020/21")
 
 result["clubs"].each do |c|
   club = league.clubs.create(

@@ -1,7 +1,22 @@
 <h2 class="title is-2">Match List</h2>
-
+<div class="mb-5">
 <ol class="ml-5">
   <% @matches.each do |match| %>
-  <li><%= link_to match.round, match %></li>
+  <li>
+  <strong>Round: </strong>
+  <%= link_to match.round, match %>
+
+    <strong>Date: </strong>
+    <%= match.date %>
+
+    <%= match.team1 %> || <%= match.team2 %>
+  </li>
   <% end %>
 </ol>
+</div>
+<div class="columns">
+<div class="column"></div>
+<div class="column"><%= paginate @matches  %></div>
+<div class="column"></div>
+</div>
+

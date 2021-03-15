@@ -16,8 +16,10 @@
   <body>
   <section class="section">
     <div class="container">
-      <h1 class="title is-1">Football Leagues</h1>
+      <h1 class="title is-1"><%= link_to 'Football Leagues', root_path %></h1>
       <%= yield %>
+
+      <%= render partial: 'common/footer' %>
     </div>
 
   </section>

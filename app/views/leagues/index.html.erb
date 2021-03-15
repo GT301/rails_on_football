@@ -2,7 +2,5 @@
 
 
 <ol class="ml-5">
-  <% @leagues.each do |league| %>
-  <li><%= link_to league.league_name, league %></li>
-  <% end %>
+  <%= render @leagues %>
 </ol>

@@ -1,18 +1,26 @@
 <div class="columns">
   <div class="column">
-    <h2 class="title is-2">Clubs List</h2>
+    <h2 class="title is-2">Top 5 Leagues</h2>
     <ol class="ml-5">
-      <% @clubs.each do |club| %>
-        <li><%= link_to club.club_name, club %></li>
-      <% end %>
+      <%= render @leagues %>
     </ol>
+    <p class="mt-5">
+      <strong><%= link_to '👉See the Clubs List!', clubs_path %></strong>
+    </P>
+    <p class="mt-5">
+      <strong><%= link_to '👉See the Leagues List!', leagues_path %></strong>
+    </p>
   </div>
 
   <div class="column">
-    <h2 class="title is-2">Leagues List</h2>
+    <h2 class="title is-2">Most Recent 10 Matches</h2>
     <ol class="ml-5">
-      <% @leagues.each do |league| %>
-        <li><%= link_to league.league_name, league %></li>
+      <% @matches.each do |match| %>
+        <li>
+          <%= link_to match.round, match %>:
+          <%= link_to match.date, match %>
+          <%= link_to match.team1, match %> ||
+          <%= link_to match.team2, match %></li>
       <% end %>
     </ol>
   </div>

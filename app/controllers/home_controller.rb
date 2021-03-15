@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @clubs = Club.includes(:league)
-                 .order("club_name DESC")
-                 .limit(20)
-    @leagues = League.limit(10)
+    @leagues = League.order("rank")
+                     .limit(5)
+
+    @matches = Match.order("date DESC")
+                    .limit(10)
   end
 end

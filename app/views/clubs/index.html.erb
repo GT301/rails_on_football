@@ -1,7 +1,13 @@
 <h2 class="title is-2">Clubs List</h2>
-
+<div class="mb-5">
 <ol class="ml-5">
   <% @clubs.each do |club| %>
-  <li><%= link_to club.club_name, club %></li>
+  <li><%= link_to club.club_name, club %> <<%= link_to club.league.league_name, club.league.league_name %>></li>
   <% end %>
 </ol>
+</div>
+<div class="columns">
+<div class="column"></div>
+<div class="column"><%= paginate @clubs  %></div>
+<div class="column"></div>
+</div>

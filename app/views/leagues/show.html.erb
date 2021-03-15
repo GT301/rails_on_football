@@ -1,16 +1,21 @@
 <h2 class="title is -2"><%= @league.league_name %></h2>
 
-<p class="mb-2">
+<div class="columns">
+  <div class="column">
+<p class="mt-5">
   This League contains <%= @league.clubs.count %> Clubs.
 </p>
-
-
 <ul>
   <% @league.clubs.each do |club| %>
   <li><%= link_to club.club_name, club %></li>
   <% end %>
 </ul>
 
+<p class="mt-5">
+  <strong><%= link_to '👉See the Leagues List!', leagues_path %></strong>
+</p>
+</div>
+<div class="column">
 <h3 class="title is-3, mt-5">Match Schedule</h3>
 <ul>
   <% @league.matches.each do |match| %>
@@ -22,3 +27,5 @@
   </li>
   <% end %>
 </ul>
+</div>
+</div>

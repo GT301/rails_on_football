@@ -1,6 +1,8 @@
 class LeaguesController < ApplicationController
   def index
-    @leagues = League.all
+    @leagues = League.select("leagues.*")
+                     .group("leagues.id")
+                     .order("rank")
   end
 
   def show

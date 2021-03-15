@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_164851) do
+ActiveRecord::Schema.define(version: 2021_03_14_230027) do
 
   create_table "clubs", force: :cascade do |t|
     t.integer "club_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_164851) do
     t.integer "club_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rank"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -40,6 +41,14 @@ ActiveRecord::Schema.define(version: 2021_03_12_164851) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "league_id", null: false
     t.index ["league_id"], name: "index_matches_on_league_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "permalink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "clubs", "leagues"
